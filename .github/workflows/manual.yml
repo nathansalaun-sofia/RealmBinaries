@@ -33,6 +33,9 @@ jobs:
         tag: "v${{ github.event.inputs.realm-version }}"
         file: "realm-swift-${{ github.event.inputs.realm-version }}.zip"
         path: realm.zip
+        
+    - name: List files
+      run: pwd && ls -la
 
     - name: Unzip archive
       run: unzip realm.zip
