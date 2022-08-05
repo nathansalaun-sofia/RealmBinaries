@@ -27,6 +27,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+        path: sources
       
     - name: Download Realm prebuilt zip
       uses: i3h/download-release-asset@v1.3.2
@@ -47,8 +48,8 @@ jobs:
 
     - name: Print checksums
       run: |
-        swift package compute-checksum Realm_13_4_1.xcframework.zip
-        swift package compute-checksum RealmSwift_13_4_1.xcframework.zip
+        swift package --package-path sources compute-checksum Realm_13_4_1.xcframework.zip
+        swift package --package-path sources compute-checksum RealmSwift_13_4_1.xcframework.zip
 
     - name: Upload Release Assets
       uses: alexellis/upload-assets@0.3.0
