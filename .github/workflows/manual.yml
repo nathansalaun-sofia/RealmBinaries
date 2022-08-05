@@ -38,11 +38,11 @@ jobs:
       run: |
         pwd
         ls -la
-        file realm.zip
-        unzip realm.zip
+        ls -la realm.zip
+        #unzip realm.zip
 
-    - name: Unzip archive
-      run: unzip realm.zip
+    #- name: Unzip archive
+    #  run: unzip realm.zip
       
     - name: List files
       run: ls -la
