@@ -18,8 +18,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
+  # This workflow contains a single job called "process"
+  process:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -32,14 +32,13 @@ jobs:
         repo: realm-swift
         tag: "v${{ github.event.inputs.realm-version }}"
         file: "realm-swift-${{ github.event.inputs.realm-version }}.zip"
-        path: realm.zip
+        path: .
         
     - name: List files
       run: |
         pwd
         ls -la
-        ls -la realm.zip
-        #unzip realm.zip
+        unzip realm-swift-${{ github.event.inputs.realm-version }}.zip
 
     #- name: Unzip archive
     #  run: unzip realm.zip
