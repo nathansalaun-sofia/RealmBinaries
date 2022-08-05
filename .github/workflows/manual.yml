@@ -54,6 +54,8 @@ jobs:
 
     - name: Upload Release Assets
       uses: alexellis/upload-assets@0.3.0
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
       with:
         # The paths to the assets you want to upload as a JSON array. You can use a glob pattern.
         asset_paths: '["*.xcframework.zip"]'
