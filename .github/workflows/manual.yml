@@ -1,6 +1,6 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Generate xcframework assets
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -21,7 +21,7 @@ jobs:
   # This workflow contains a single job called "process"
   process:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -37,18 +37,18 @@ jobs:
     - name: Unzip archive
       run: unzip realm-swift-${{ github.event.inputs.realm-version }}.zip
       
-    - name: Print checksum
-      run: 
-      
     - name: Zip xcframeworks
       run: |
         zip Realm_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/Realm.xcframework
         zip RealmSwift_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/RealmSwift.xcframework
 
+    - name: Print checksums
+      run: |
+        swift package compute-checksum Realm_13_4_1.xcframework.zip
+        swift package compute-checksum RealmSwift_13_4_1.xcframework.zip
+
     - name: Upload Release Assets
       uses: alexellis/upload-assets@0.3.0
       with:
         # The paths to the assets you want to upload as a JSON array. You can use a glob pattern.
-        asset_paths: 
-        - Realm_13_4_1.xcframework.zip
-        - RealmSwift_13_4_1.xcframework.zip
+        asset_paths: '["*.xcframework.zip"]'
