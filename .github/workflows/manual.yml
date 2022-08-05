@@ -37,6 +37,9 @@ jobs:
     - name: Unzip archive
       run: unzip realm-swift-${{ github.event.inputs.realm-version }}.zip
       
+    - name: Print checksum
+      run: 
+      
     - name: Zip xcframeworks
       run: |
         zip Realm_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/Realm.xcframework
@@ -47,5 +50,5 @@ jobs:
       with:
         # The paths to the assets you want to upload as a JSON array. You can use a glob pattern.
         asset_paths: 
-          - Realm_13_4_1.xcframework.zip
-          - RealmSwift_13_4_1.xcframework.zip
+        - Realm_13_4_1.xcframework.zip
+        - RealmSwift_13_4_1.xcframework.zip
