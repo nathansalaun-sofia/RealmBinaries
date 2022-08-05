@@ -25,6 +25,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
     - name: Download Realm prebuilt zip
       uses: i3h/download-release-asset@v1.3.2
       with:
@@ -39,8 +42,8 @@ jobs:
       
     - name: Zip xcframeworks
       run: |
-        zip Realm_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/Realm.xcframework
-        zip RealmSwift_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/RealmSwift.xcframework
+        zip Realm_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/Realm.xcframework realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/Info.plist
+        zip RealmSwift_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/RealmSwift.xcframework realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/Info.plist
 
     - name: Print checksums
       run: |
