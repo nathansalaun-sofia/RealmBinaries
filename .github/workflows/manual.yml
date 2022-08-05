@@ -34,22 +34,18 @@ jobs:
         file: "realm-swift-${{ github.event.inputs.realm-version }}.zip"
         path: .
         
-    - name: List files
+    - name: Unzip archive
+      run: unzip realm-swift-${{ github.event.inputs.realm-version }}.zip
+      
+    - name: Zip xcframeworks
       run: |
-        pwd
-        ls -la
-        unzip realm-swift-${{ github.event.inputs.realm-version }}.zip
+        zip Realm_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/Realm.xcframework
+        zip RealmSwift_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/RealmSwift.xcframework
 
-    #- name: Unzip archive
-    #  run: unzip realm.zip
-      
-    - name: List files
-      run: ls -la
-      
-    #- name: Upload a Build Artifact
-    #  uses: actions/upload-artifact@v3.1.0
-    #  with:
-    #    # Artifact name
-    #    name: test
-    #    # A file, directory or wildcard pattern that describes what to upload
-    #    path: tobedefined
+    - name: Upload Release Assets
+      uses: alexellis/upload-assets@0.3.0
+      with:
+        # The paths to the assets you want to upload as a JSON array. You can use a glob pattern.
+        asset_paths: 
+          - Realm_13_4_1.xcframework.zip
+          - RealmSwift_13_4_1.xcframework.zip
