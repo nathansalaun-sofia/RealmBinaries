@@ -35,7 +35,11 @@ jobs:
         path: realm.zip
         
     - name: List files
-      run: pwd && ls -la
+      run: |
+        pwd
+        ls -la
+        file realm.zip
+        unzip realm.zip
 
     - name: Unzip archive
       run: unzip realm.zip
