@@ -56,10 +56,12 @@ jobs:
         swift package --package-path sources compute-checksum Realm_13_4_1.xcframework.zip
         swift package --package-path sources compute-checksum RealmSwift_13_4_1.xcframework.zip
 
-    - name: Upload Release Assets
-      uses: alexellis/upload-assets@0.3.0
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      #if: startsWith(github.ref, 'refs/tags/')
       with:
-        # The paths to the assets you want to upload as a JSON array. You can use a glob pattern.
-        asset_paths: '["*.xcframework.zip"]'
+        name: ${{ github.event.inputs.realm-version }}
+        tag_name: ${{ github.event.inputs.realm-version }}
+        files: |
+          Realm_13_4_1.xcframework.zip
+          RealmSwift_13_4_1.xcframework.zip
