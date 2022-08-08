@@ -48,8 +48,8 @@ jobs:
       
     - name: Zip xcframeworks
       run: |
-        zip Realm_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/Realm.xcframework
-        zip RealmSwift_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/RealmSwift.xcframework
+        zip -r Realm_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/Realm.xcframework
+        zip -r RealmSwift_13_4_1.xcframework.zip realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/RealmSwift.xcframework
 
     - name: Print checksums
       run: |
