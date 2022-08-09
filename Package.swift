@@ -9,8 +9,8 @@ func buildTargets() -> [Target] {
     let baseURL = "https://github.com/mattalbus/RealmBinaries/releases/download/\(realmVersion)"
 
     let xcodeVersion = "13_4_1"
-    let realmChecksum = "1d0ec4491524148ec4ebf5f38b3d6c095f3cb8f65ecb4cae8d2b5b661096bc1f"
-    let realmSwiftChecksum = "0aeb90b6a74d0753bc791caa0cfc08f35b040a54a499f313a32c28e51f627b40"
+    let realmChecksum = "9cf1af2b9f4bd7f3da9f25da2b4f262141063a42bd7e233aeb96164594bd9375"
+    let realmSwiftChecksum = "60fe93a7e582a7ad54eaf25fbdc28541b286403b54b5168b6efe2b835e898ef4"
     
     return [
         .binaryTarget(
