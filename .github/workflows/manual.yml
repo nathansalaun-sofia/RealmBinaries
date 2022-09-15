@@ -12,7 +12,7 @@ on:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'Realm version'
         # Default value if no value is explicitly provided
-        default: '10.28.4'
+        default: '10.29.0'
         # Input has to be provided for the workflow to run
         required: true
 
@@ -52,9 +52,9 @@ jobs:
         zip -r Realm_13_4_1.xcframework.zip Realm.xcframework
         mv realm-swift-${{ github.event.inputs.realm-version }}/13.4.1/RealmSwift.xcframework RealmSwift.xcframework
         zip -r RealmSwift_13_4_1.xcframework.zip RealmSwift.xcframework
-        mv -f realm-swift-${{ github.event.inputs.realm-version }}/14.0.0/Realm.xcframework Realm.xcframework
+        mv -f realm-swift-${{ github.event.inputs.realm-version }}/14.0/Realm.xcframework Realm.xcframework
         zip -r Realm_14_0_0.xcframework.zip Realm.xcframework
-        mv -f realm-swift-${{ github.event.inputs.realm-version }}/14.0.0/RealmSwift.xcframework RealmSwift.xcframework
+        mv -f realm-swift-${{ github.event.inputs.realm-version }}/14.0/RealmSwift.xcframework RealmSwift.xcframework
         zip -r RealmSwift_14_0_0.xcframework.zip RealmSwift.xcframework
 
     - name: Print checksums
