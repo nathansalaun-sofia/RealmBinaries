@@ -10,12 +10,12 @@ func buildTargets() -> [Target] {
 
 #if swift(>=5.7.0)
     let xcodeVersion = "14_0_0"
-    let realmChecksum = "f33dd693939319b51af936e10ac47b92e3261c0a25e7cd21903c34a61cd9bb89"
-    let realmSwiftChecksum = "efc5f7ec34577fca964450fc27b451c09dcd47de28b117df3a34d2c6485efc2a"
+    let realmChecksum = "7f240227fc083246e5955e15d830c18ccee9eb398b5c0e5f31ffee5b3f1bf4db"
+    let realmSwiftChecksum = "c5a2a26b3152eb20bb7a9126f6ba40ca22405f0a63923a8555e14e65962191b2"
 #else
     let xcodeVersion = "13_4_1"
-    let realmChecksum = "f5dc3f1ede9948f6f5b931629cddd6106569078a07d3282aae645cfb17b1222a"
-    let realmSwiftChecksum = "becb3743479f75cd003e85c80dd1b528710c04057e273ca20bfddf99d02d8c73"
+    let realmChecksum = "797d2073be1c313d2423756dfa73a1f048b4cf8c46ad855d9c77cd3e1ae46480"
+    let realmSwiftChecksum = "36795671b1b92934767aa6d0f53aae50904faa943389e742b2e092bd548f1e7c"
 #endif
     
     return [
