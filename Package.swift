@@ -3,19 +3,19 @@
 
 import PackageDescription
 
-let realmVersion = "10.29.0"
+let realmVersion = "10.33.0"
 
 func buildTargets() -> [Target] {
     let baseURL = "https://github.com/mattalbus/RealmBinaries/releases/download/\(realmVersion)"
 
 #if swift(>=5.7.0)
-    let xcodeVersion = "14_0_0"
-    let realmChecksum = "82f7bc8434f5ec10ae98041c179381625feed28785c877432807eeaf677bb4dc"
-    let realmSwiftChecksum = "15d22265026a25cf5dc2e0f032b5cef2dc8eada80ff9d961f73c889ecc1da931"
+    let xcodeVersion = "14_1_0"
+    let realmChecksum = "8dd952296f2ab8683de09807bf21b5a25555273185fdca9246fec0c48fd60108"
+    let realmSwiftChecksum = "07e6078544e062d0f38d02180fc05c7706820fed7c82a8bdb47362b1b664c90f"
 #else
     let xcodeVersion = "13_4_1"
-    let realmChecksum = "ee60b87ef515083e76b92bda7fff36ad9b2695ba82158200216ac8f68dc03a1f"
-    let realmSwiftChecksum = "e3de0f57ac813545e00c898a7bca1579855bd89fd89b95186f57eecdd1289cf1"
+    let realmChecksum = "cf52351ef6c90dd07ba6289442fee3f0a99185eeb337b3ef599619a851d645c1"
+    let realmSwiftChecksum = "3b5ffc14887297e2af4fc285ba3b5ba3d69ff251e5b6c2e13a43a85ca215282d"
 #endif
     
     return [
