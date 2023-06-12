@@ -12,7 +12,7 @@ on:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'Realm version'
         # Default value if no value is explicitly provided
-        default: '10.38.0'
+        default: '10.40.2'
         # Input has to be provided for the workflow to run
         required: true
 
@@ -48,10 +48,10 @@ jobs:
       
     - name: Zip xcframeworks
       run: |
-        mv realm-swift-${{ github.event.inputs.realm-version }}/14.3/Realm.xcframework Realm.xcframework
-        zip -r Realm_14_3_0.xcframework.zip Realm.xcframework
-        mv realm-swift-${{ github.event.inputs.realm-version }}/14.3/RealmSwift.xcframework RealmSwift.xcframework
-        zip -r RealmSwift_14_3_0.xcframework.zip RealmSwift.xcframework
+        mv realm-swift-${{ github.event.inputs.realm-version }}/14.3.1/Realm.xcframework Realm.xcframework
+        zip -r Realm_14_3_1.xcframework.zip Realm.xcframework
+        mv realm-swift-${{ github.event.inputs.realm-version }}/14.3.1/RealmSwift.xcframework RealmSwift.xcframework
+        zip -r RealmSwift_14_3_1.xcframework.zip RealmSwift.xcframework
         rm -rf Realm.xcframework
         rm -rf RealmSwift.xcframework
         mv realm-swift-${{ github.event.inputs.realm-version }}/14.2/Realm.xcframework Realm.xcframework
@@ -63,8 +63,8 @@ jobs:
       run: |
         swift package --package-path sources compute-checksum Realm_14_2_0.xcframework.zip
         swift package --package-path sources compute-checksum RealmSwift_14_2_0.xcframework.zip
-        swift package --package-path sources compute-checksum Realm_14_3_0.xcframework.zip
-        swift package --package-path sources compute-checksum RealmSwift_14_3_0.xcframework.zip
+        swift package --package-path sources compute-checksum Realm_14_3_1.xcframework.zip
+        swift package --package-path sources compute-checksum RealmSwift_14_3_1.xcframework.zip
 
     - name: Release
       uses: softprops/action-gh-release@v1
@@ -75,5 +75,5 @@ jobs:
         files: |
           Realm_14_2_0.xcframework.zip
           RealmSwift_14_2_0.xcframework.zip
-          Realm_14_3_0.xcframework.zip
-          RealmSwift_14_3_0.xcframework.zip
+          Realm_14_3_1.xcframework.zip
+          RealmSwift_14_3_1.xcframework.zip
