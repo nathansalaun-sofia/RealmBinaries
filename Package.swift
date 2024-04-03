@@ -1,20 +1,19 @@
 // swift-tools-version:5.3
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
-let realmVersion = "10.48.1"
+let realmVersion = "10.49.1"
 
 func buildTargets() -> [Target] {
     let realmUrl = "https://github.com/realm/realm-swift/releases/download/v\(realmVersion)/Realm.spm.zip"
-    let realmChecksum = "9df06aa37e11a366d58b819d12e02ab25e456944c6eb67609538f3175fe57d8c"
+    let realmChecksum = "2b7854a2f9372a7d89495cf854c18a9d60b15ed1057afafecd24b6f4281634df"
 
 #if swift(>=5.10)
     let realmSwiftUrl = "https://github.com/realm/realm-swift/releases/download/v\(realmVersion)/RealmSwift@15.3.spm.zip"
-    let realmSwiftChecksum = "f2b1aa3b94b1f999213f8dc6966cd1ce45dbe53568ec9db177a0df346e01c943"
+    let realmSwiftChecksum = "cc0c4b32cdec945593b53bd1c80770ec2b4dbe4385efbb864e9dd0691deb4fc5"
 #else
     let realmSwiftUrl = "https://github.com/realm/realm-swift/releases/download/v\(realmVersion)/RealmSwift@15.1.spm.zip"
-    let realmSwiftChecksum = "d24e8f21a10b604e30dcc75cbe96df298074725ec0f531957e600d99a9e4f8e4"
+    let realmSwiftChecksum = "2e3b01f36756134a318a38408504377fe076fd4b1999bfc977749f126049d279"
 #endif
     
     return [
